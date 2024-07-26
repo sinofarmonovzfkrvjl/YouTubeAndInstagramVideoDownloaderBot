@@ -10,7 +10,7 @@ bot = TeleBot(os.getenv("TOKEN"))
 
 @bot.message_handler(commands=['start'])
 def start(message: types.Message):
-    bot.send_message(message.chat.id, f"Salom {message.from_user.full_name}")
+    bot.send_message(message.chat.id, f"Salom {message.from_user.full_name}\nmen YouTube va Instagram video yuklovchi botman\nmenga video linkini yuboring")
 
 @bot.message_handler()
 def start(message: types.Message):
