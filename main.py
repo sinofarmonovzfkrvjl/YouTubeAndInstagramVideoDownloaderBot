@@ -29,7 +29,10 @@ def start(message: types.Message):
                     bot.send_video(message.chat.id, video=video)
         except Exception as e:
             bot.send_message(message.chat.id, "Videoni yuklashda xatolik yuz berdi")
-        os.remove("video.mp4")
+        try:
+            os.remove("video.mp4")
+        except:
+            pass
     if message.text.startswith("https://www.instagram.com/") or message.text.startswith("https://instagram.com/"):
         try:
             downloaded = InstagramDownloader(message.text)
@@ -44,7 +47,10 @@ def start(message: types.Message):
                         print(e)
         except:
             bot.send_message(message.chat.id, "Videoni yuklashda xatolik yuz berdi")
-        shutil.rmtree(downloaded[2])
+        try:
+            shutil.rmtree(downloaded[2])
+        except:
+            pass
 
 
 bot.infinity_polling(skip_pending=True, timeout=False)
